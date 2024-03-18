@@ -3,6 +3,8 @@
 #include <string>
 #include <algorithm>
 #include <sstream>
+#include <chrono>
+
 
 // Function to calculate LCS length
 std::vector<int> lcs_length(const std::vector<std::string>& words_x, const std::vector<std::string>& words_y) {
@@ -82,12 +84,22 @@ int main() {
     std::vector<std::string> Y = readWords();
    
 
-   auto result = LCS_HIRSHBERG(X, Y);
+
+    auto start = std::chrono::high_resolution_clock::now();
+    auto result = LCS_HIRSHBERG(X, Y);
+    auto end = std::chrono::high_resolution_clock::now();
     
     std::cout  << result.size() << std::endl;
-    for (const auto& word : result) {
-        std::cout << word << " ";
+    
+    if (result.size() > 0) {
+        std::cout << result[0];
+        for (size_t i = 1; i < result.size(); ++i) {
+            std::cout << " " << result[i];
+        }
+        std::cout << std::endl;
     }
-    std::cout << std::endl;
+
+    // output in seconds
+    std::cout << "TIME: " << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << " ms" << std::endl;
 }
 
