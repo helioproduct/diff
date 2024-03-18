@@ -9,6 +9,7 @@ def lcs_length(words_x, words_y):
                 curr[y_i + 1] = max(curr[y_i], prev[y_i + 1])
     return curr
 
+
 def LCS_HIRSHBERG(words_x, words_y):
     len_x = len(words_x)
     if len_x == 0:
@@ -28,6 +29,7 @@ def LCS_HIRSHBERG(words_x, words_y):
         y_beg, y_end = words_y[:j], words_y[j:]
         return LCS_HIRSHBERG(x_beg, y_beg) + LCS_HIRSHBERG(x_end, y_end)
 
+
 # Example usage:
 # words_x = "abc sdf kjb kjb".split()
 # words_y = "kjb yu sdf kjf kl kjb".split()
@@ -38,4 +40,4 @@ words_y = input().split()
 
 result = LCS_HIRSHBERG(words_x, words_y)
 print(len(result))
-print(' '.join(result))
+print(" ".join(result))
