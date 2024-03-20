@@ -30,10 +30,6 @@ def LCS_HIRSHBERG(words_x, words_y):
         return LCS_HIRSHBERG(x_beg, y_beg) + LCS_HIRSHBERG(x_end, y_end)
 
 
-# Example usage:
-# words_x = "abc sdf kjb kjb".split()
-# words_y = "kjb yu sdf kjf kl kjb".split()
-
 words_x = input().split()
 words_y = input().split()
 
