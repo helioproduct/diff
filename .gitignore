@@ -33,3 +33,7 @@
 
 *vscode
 diff
+
+
+# test files
+./tests/*.txt
